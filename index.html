@@ -92,7 +92,6 @@
                 }
             }
         
-            // Start the typing effect when the page loads
             window.onload = typeWriter;
         </script>
            <section class="mt_15.25rem xl:d_flex xl:items_center xl:gap_8rem xl:p_0_6.5rem xl:overflow_hidden 2xl:gap_2rem 2xl:p_0_12.5rem [&_p]:text_gray.400 [&_p]:w_245px [&_p]:xs:m_0_auto [&_p]:xl:m_unset [&_strong]:d_block [&_strong]:fs_5rem [&_strong]:text_white [&_strong]:m_-0.6rem_0">
@@ -108,12 +107,12 @@
                         <span>Canteen Management System</span>
                     </div>
                     <div class="keen-slider__slide bg_#7D9CA5 rounded_3.75rem d_flex flex_column justify_center items_flex-start p_0_1.875rem" data-project="Football EDA">
-                        <img alt="P2" loading="lazy" width="52" height="54" decoding="async" data-nimg="1" style="color:transparent" src="images\techs\football.png"/>
+                        <img alt="P2" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" style="color:transparent" src="images\techs\football.png"/>
                         <span>Football EDA</span>
                     </div>
-                    <div class="keen-slider__slide bg_#C2C2C2 rounded_3.75rem d_flex flex_column justify_center items_flex-start p_0_1.875rem">
-                        <img alt="Next.JS Icon" loading="lazy" width="52" height="52" decoding="async" data-nimg="1" style="color:transparent" src="next/static/media/nextjs.2ce3251e.svg"/>
-                        <span>Next.JS</span>
+                    <div class="keen-slider__slide bg_#C2C2C2 rounded_3.75rem d_flex flex_column justify_center items_flex-start p_0_1.875rem" data-project="Olympics Dashboard">
+                        <img alt="Olympics Dashboard" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" style="color:transparent" src="images\techs\image.png"/>
+                        <span>Olympics Dashboard</span>
                     </div>
                 </div>
             </div>
@@ -153,7 +152,6 @@
                 }
             }
             </style>
-
 <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -200,12 +198,27 @@ const projects = {
       <strong>Findings and Insights:</strong> By overcoming these obstacles, we were able to provide a detailed analysis of factors influencing club performance, player contributions, and the impact of various game events. Our findings offer valuable insights that can inform decision-making for clubs, enhance fan engagement, and guide further research in football analytics.
     `,
     link: 'https://github.com/Nakshjainsonigara/Football-EDA' // Replace with the actual link
-  }
+  },
+
+'Olympics Dashboard': {
+  title: 'Olympics Dashboard',
+  description: `
+    The dashboard analyzes the recent Paris 2024 Olympics using a large dataset obtained from Kaggle. The primary objective was to explore and visualize key insights related to medal distributions, athlete demographics, and sustainable venue management.
+
+    <strong>Data Modeling and ETL:</strong> To achieve this, data modeling techniques and ETL (Extract, Transform, Load) processes were employed to create a comprehensive data model with established relationships among various data sources. Python was utilized to extract relevant data from the Indian government website, allowing for the integration of multiple datasets.
+
+    <strong>Challenges Encountered:</strong> The project faced challenges related to developing a complex data model, but these were overcome through careful planning and iterative refinement. 
+
+    <strong>Key Insights:</strong> Key insights derived from the analysis include detailed medal distribution trends, demographic information about athletes, and an evaluation of India's potential as a future Olympic host.
+
+    <strong>Conclusion:</strong> This project showcases the ability to handle large datasets and apply advanced data analytics techniques to derive meaningful conclusions.
+  `,
+  link: 'https://bit.ly/Olympicsdashboard' 
+}
 };
 
 
 
-// Get the modal
 const modal = document.getElementById('project-modal');
 
 // Get the <span> element that closes the modal
@@ -375,7 +388,7 @@ document.querySelectorAll('.keen-slider__slide').forEach(slide => {
                     <h3>DataBase/BigData</h3>
                     <span class="tech">
                         <img src="https://img.icons8.com/officel/80/database.png" alt="Tech6 Logo" width="20" height="20">
-                        Oracle/MySql/PostgreSQL
+                        Oracle/MySQL/PostgreSQL
                     </span>
                     <span class="tech">
                         <img src="https://img.icons8.com/color/48/hadoop-distributed-file-system.png" alt="Tech7 Logo" width="20" height="20">
@@ -406,7 +419,7 @@ document.querySelectorAll('.keen-slider__slide').forEach(slide => {
                     </span>
                     <span class="tech">
                         <img src="images\techs\github-actions.svg" alt="Tech12 Logo" width="20" height="20">
-                        Github Actions
+                        Git/Github Actions
                     </span>
                 </div>
                 <div class="tech-container">
