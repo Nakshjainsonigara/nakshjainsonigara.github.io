@@ -659,10 +659,10 @@ document.querySelectorAll('.keen-slider__slide').forEach(slide => {
     </style>
 </head>
 <body>
-    <div id="blurOverlay" class="blur-overlay"></div>
+    <div id="blurOverlay" class="blur-overlay" ></div>
     <div id="videoContainer" class="video-container">
         <div class="video-wrapper">
-            <video id="videoFrame" src="" frameborder="0" allowfullscreen allow="autoplay" type="video/mp4" controls></video>
+            <video id="videoFrame" preload="metadata" src="" frameborder="0" allowfullscreen allow="autoplay" type="video/mp4" controls></video>
             <button id="closeVideoBtn" class="close-btn">&times;</button>
         </div>
     </div>
