@@ -73,7 +73,7 @@
                     <p id="typing-text"></p>
                     <div>
                         <a class="w_11.5rem h_2.875rem bg_white text_gray.900 text_center p_0.75rem_2.5rem rounded_6.25rem font_bold" href="downloads/Naksh_Resume.pdf" target="_blank" download="">Download CV</a>
-                        <a class="text_purple.300" href="https://www.linkedin.com/messaging/compose/?recipient=nakshjainsonigara" target="_blank">Get in Touch<span style="font-size: 1.5em;">👋🏻</span></a>
+                        <a id="getInTouchBtn" class="text_purple.300">Resume on Air<span style="font-size: 1.5em;">🎧</span></a>
                     </div>
                 </div>
             </section>
@@ -542,6 +542,175 @@ document.querySelectorAll('.keen-slider__slide').forEach(slide => {
             </div>
         </section>
     </footer>
+
+
+    <!-- Podcast section  -->
+    <style>
+
+        .container {
+            text-align: center;
+        }
+
+        .video-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background:transparent;
+    width: 32%; /* Increased from 50% */
+    height: 65%; /* Increased from 50% */
+    margin: auto; /* Centering the box */
+    align-items: center;
+    justify-content: center;
+}
+
+
+.video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(185, 176, 230, 0.7);
+}
+
+.video-wrapper iframe {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+        .video-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: transparent;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.7;
+        }
+
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .get-in-touch-btn {
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .get-in-touch-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .blur-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        z-index: 999; /* Just below the video container */
+    }
+
+    .video-container {
+        /* Update z-index to be higher than the blur overlay */
+        z-index: 1000;
+    }
+    </style>
+</head>
+<body>
+    <div id="blurOverlay" class="blur-overlay"></div>
+    <div id="videoContainer" class="video-container">
+        <div class="video-wrapper">
+            <video id="videoFrame" src="" frameborder="0" allowfullscreen allow="autoplay" type="video/mp4" controls></video>
+            <button id="closeVideoBtn" class="close-btn">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        const getInTouchBtn = document.getElementById('getInTouchBtn');
+        const videoContainer = document.getElementById('videoContainer');
+        const videoFrame = document.getElementById('videoFrame');
+        const closeVideoBtn = document.getElementById('closeVideoBtn');
+    const blurOverlay = document.getElementById('blurOverlay');
+
+    function showVideo() {
+        videoFrame.src = "next/static/media/Podcast.mp4";
+        videoFrame.muted = true;  // Mute the video to allow autoplay
+        videoContainer.style.display = 'flex';
+        blurOverlay.style.display = 'block';
+        document.body.classList.add('modal-open');
+        videoFrame.play(); 
+        history.pushState(null, '', '?show_video=true');
+    }
+
+
+    function hideVideo() {
+        videoFrame.src = "";
+        videoContainer.style.display = 'none';
+        blurOverlay.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        history.pushState(null, '', '/');
+    }
+
+    
+
+        getInTouchBtn.addEventListener('click', showVideo);
+        closeVideoBtn.addEventListener('click', hideVideo);
+        videoContainer.addEventListener('click', (event) => {
+            if (event.target === videoContainer) {
+                hideVideo();
+            }
+        });
+
+        // Check if the page was opened with the 'show_video' parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('show_video') === 'true') {
+            showVideo();
+        }
+    </script>
+
+
     <script src="/next/static/chunks/webpack-302e4217834d5730.js" async=""></script>
     <script>
         (self.__next_f = self.__next_f || []).push([0]);
